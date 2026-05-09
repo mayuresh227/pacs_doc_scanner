@@ -153,8 +153,8 @@ class PdfExportNotifier extends StateNotifier<PdfExportState> {
 
     const pageFormat = PdfPageFormat.a4;
     const margin = 36.0;
-    const contentWidth = pageFormat.width - (margin * 2);
-    const contentHeight = pageFormat.height - (margin * 2);
+    final contentWidth = pageFormat.width - (margin * 2);
+    final contentHeight = pageFormat.height - (margin * 2);
 
     for (int i = 0; i < pages.length; i++) {
       final page = pages[i];
