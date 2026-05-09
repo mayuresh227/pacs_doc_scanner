@@ -1,0 +1,21 @@
+# This file configures the analyzer to use strict type checking.
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    - avoid_print
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_final_fields
+    - avoid_unnecessary_containers
+    - sized_box_for_whitespace
+    - use_key_in_widget_constructors
+    - prefer_single_quotes

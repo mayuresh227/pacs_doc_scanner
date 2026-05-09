@@ -1,0 +1,15 @@
+set(CMAKE_HOST_SYSTEM "Linux-6.6.99-09128-g14e87a8a9b71")
+set(CMAKE_HOST_SYSTEM_NAME "Linux")
+set(CMAKE_HOST_SYSTEM_VERSION "6.6.99-09128-g14e87a8a9b71")
+set(CMAKE_HOST_SYSTEM_PROCESSOR "aarch64")
+
+include("/home/coop-ai/Android/ndk/28.2.13676358/build/cmake/android.toolchain.cmake")
+
+set(CMAKE_SYSTEM "Android-1")
+set(CMAKE_SYSTEM_NAME "Android")
+set(CMAKE_SYSTEM_VERSION "1")
+set(CMAKE_SYSTEM_PROCESSOR "aarch64")
+
+set(CMAKE_CROSSCOMPILING "TRUE")
+
+set(CMAKE_SYSTEM_LOADED 1)
