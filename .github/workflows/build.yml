@@ -1,0 +1,50 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.0'
+          channel: beta
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      - name: Accept Android licenses
+        run: |
+          yes | flutter doctor --android-licenses || true
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Build app bundle
+        run: flutter build appbundle
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-release
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-bundle
+          path: build/app/outputs/flutter-apk/app-release.aab
+
+      - name: List outputs
+        run: |
+          ls -la build/app/outputs/flutter-apk/
